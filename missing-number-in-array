@@ -1,0 +1,21 @@
+using System;
+using System.Linq;
+public class GFG {
+	static public void Main () {
+	    int testCases;
+	    bool parsable = int.TryParse(Console.ReadLine(), out testCases);
+	    
+	    for(int i = 0; i < testCases; i++)
+	    {
+	        int arraySize;
+	        parsable = int.TryParse(Console.ReadLine(),out arraySize);
+	        string arrayString = Console.ReadLine();
+	        string[] strValues = arrayString.Split(' ');
+	        int[] intValues = Array.ConvertAll(strValues, item => int.Parse(item));
+	        int expectedValue = arraySize*(arraySize+1)/2;
+	        int realSum = intValues.Sum();
+	        Console.WriteLine(expectedValue-realSum);
+	    }
+		
+	}
+}
